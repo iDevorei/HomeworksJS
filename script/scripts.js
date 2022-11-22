@@ -107,6 +107,9 @@ console.log('');
 console.log('Задание 9');
 document.write(`<hr>`);
 
+// Дана строка с числами разделенными пробелами «4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36
+// 8 57». Найдите самое большое и самое маленькое число в строке, используя цикл.
+
 let str = '4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57';
 
 let current = '',
@@ -122,6 +125,23 @@ for(let i = 0; i < str.length; i++) {
     }
 }
 document.write(`Минимальное число ${min}. Максимальное число ${max}.`);
+
+document.write(`<br/>Правильное решение доделанное: `);
+
+max = -Infinity;
+min = Infinity;
+
+for (let i = 0; i <= str.length; i++){
+    if (str[i] !== ' ' && i != str.length){
+        current += str[i];
+    }else{
+        // console.log(current);
+        if (min > +current) min = +current;
+        if (max < +current) max = +current;
+        current = '';
+    }
+}
+document.write(`Минимум ${min}. Максимум ${max}.`);
 
 console.log('');
 console.log('Задание 10');
